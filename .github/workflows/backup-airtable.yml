@@ -30,7 +30,7 @@ jobs:
         AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
         AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
       run: |-
-        airtable-export backups $AIRTABLE_BASE_ID Solutions -v
+        airtable-export backups $AIRTABLE_BASE_ID Solutions --key=$AIRTABLE_KEY -v
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
