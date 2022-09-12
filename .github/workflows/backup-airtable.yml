@@ -30,14 +30,17 @@ jobs:
         AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
         AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
       run: |-
+        echo "Before export====================================================="
+        cat backups/Solutions.json
         airtable-export backups $AIRTABLE_BASE_ID Solutions --key=$AIRTABLE_KEY --json -v
+        echo "After export====================================================="
         cat backups/Solutions.json
         git diff backups/
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
         git config user.email "actions@users.noreply.github.com"
-        git add -A
+        git add .
         timestamp=$(date -u)
         git commit -m "Latest data: ${timestamp}" || exit 0
         git push
