@@ -31,11 +31,15 @@ jobs:
         AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
       run: |-
         echo "Before export====================================================="
+        ls -lta
         cat backups/Solutions.json
-        airtable-export backups $AIRTABLE_BASE_ID Solutions --key=$AIRTABLE_KEY --json --user-agent "Airtable Export Robot" 
+        ls  backups -lta
+        airtable-export backups $AIRTABLE_BASE_ID Solutions --key=$AIRTABLE_KEY --user-agent "Airtable Export Robot" 
         airtable-export --help 
         echo "After export====================================================="
+        ls -lta
         cat backups/Solutions.json
+        ls  backups -lta
         git diff backups/
     - name: Commit and push if it changed
       run: |-
