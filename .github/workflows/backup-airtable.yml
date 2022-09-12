@@ -32,8 +32,8 @@ jobs:
       run: |-
         echo "Before export====================================================="
         cat backups/Solutions.json
-        airtable-export backups $AIRTABLE_BASE_ID Solutions --json -v --user-agent "Airtable Export Robot" --key=$AIRTABLE_KEY
-        airtable-export -help 
+        airtable-export backups $AIRTABLE_BASE_ID Solutions --key=$AIRTABLE_KEY --json -v --user-agent "Airtable Export Robot" 
+        airtable-export --help 
         echo "After export====================================================="
         cat backups/Solutions.json
         git diff backups/
