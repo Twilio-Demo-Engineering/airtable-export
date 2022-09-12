@@ -10,7 +10,7 @@
             "Voice",
             "WhatsApp"
         ],
-        "Description": "This is **bold** this is a \n- list\n- list 1\n- list 2\n_Italics testing_\n\n",
+        "Description": "something differing",
         "Name": "Verify",
         "Status": "In progress",
         "airtable_createdTime": "2022-08-09T15:11:48.000Z",
