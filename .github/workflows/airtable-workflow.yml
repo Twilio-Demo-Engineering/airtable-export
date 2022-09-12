@@ -34,7 +34,7 @@ jobs:
           ls -lta
           cat backups/Solutions.json
           ls  backups -lta
-          python airtable-export backups $AIRTABLE_BASE_ID Solutions --key=$AIRTABLE_KEY --user-agent "Airtable Export Robot" 
+          python -m airtable-export backups $AIRTABLE_BASE_ID Solutions --key=$AIRTABLE_KEY --user-agent "Airtable Export Robot" 
           airtable-export --help 
           echo "After export====================================================="
           ls -lta
