@@ -17,7 +17,8 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
         env:
           AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
@@ -25,7 +26,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
-      - run: echo $AIRTABLE_BASE_ID
-      - run: npm ci
-      - run: npm run start --if-present
-      - run: npm test
+      - name: output envs
+        run: echo $AIRTABLE_BASE_ID
+      - name: Install
+        run: npm ci
+      - name: Run Start
+        run: npm run start --if-present
