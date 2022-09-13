@@ -15,14 +15,15 @@ jobs:
       matrix:
         node-version: [14.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
+    env:
+          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+          AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
+          
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
-        env:
-          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
-          AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
+        uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
