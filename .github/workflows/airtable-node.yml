@@ -7,6 +7,10 @@ on:
   pull_request:
     branches: [$default-branch]
 
+env:
+          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+          AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -15,9 +19,7 @@ jobs:
       matrix:
         node-version: [14.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-    env:
-          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
-          AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
+    
 
     steps:
       - name: Checkout
@@ -30,6 +32,9 @@ jobs:
       - name: output envs
         run: echo $AIRTABLE_BASE_ID
       - name: add envs to .env
+        env:
+          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+          AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
         run: | 
           touch .env
           echo AIRTABLE_KEY=${{ secrets.AIRTABLE_KEY }} >> .env
