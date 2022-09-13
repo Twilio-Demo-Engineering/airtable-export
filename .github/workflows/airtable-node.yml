@@ -34,6 +34,7 @@ jobs:
           touch .env
           echo AIRTABLE_KEY=${{ secrets.AIRTABLE_KEY }} >> .env
           echo AIRTABLE_BASE_ID=$AIRTABLE_BASE_ID >> .env
+          cat .env
       - name: Install
         run: npm ci
       - name: Run Start
