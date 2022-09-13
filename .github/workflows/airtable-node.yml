@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: create env file
-      - run: |
+        run: |
         touch .env
         echo AIRTABLE_KEY=${{ secrets.AIRTABLE_KEY }} >> .env
         echo AIRTABLE_BASE_ID=${{ secrets.AIRTABLE_BASE_ID }} >> .env
