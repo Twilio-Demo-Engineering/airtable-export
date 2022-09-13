@@ -7,11 +7,6 @@ on:
   pull_request:
     branches: [$default-branch]
 
-with:
-  node-version: ${{ matrix.node-version }}
-  cache: "npm"
-  cache-dependency-path: "package-lock.json"
-
 jobs:
   build:
     runs-on: ubuntu-latest
