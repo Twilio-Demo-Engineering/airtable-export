@@ -1,6 +1,7 @@
 name: Airtable Node.js
 
 on:
+  workflow_dispatch:
   push:
     branches: [$default-branch]
   pull_request:
