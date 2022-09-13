@@ -18,11 +18,13 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      - name: create env file
+      run: |
+        touch .env
+        echo AIRTABLE_KEY=${{ secrets.AIRTABLE_KEY }} >> .env
+        echo AIRTABLE_BASE_ID=${{ secrets.AIRTABLE_BASE_ID }} >> .env
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
-        env:
-          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
-          AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
