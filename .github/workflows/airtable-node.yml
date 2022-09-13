@@ -20,6 +20,9 @@ jobs:
       - uses: actions/checkout@v3
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
+        env:
+          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+          AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
         with:
           node-version: ${{ matrix.node-version }}
           cache: "npm"
