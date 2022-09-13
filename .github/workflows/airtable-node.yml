@@ -8,8 +8,8 @@ on:
     branches: [$default-branch]
 
 env:
-          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
-          AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
+  AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+  AIRTABLE_KEY: ${{ secrets.AIRTABLE_KEY }}
 
 jobs:
   build:
